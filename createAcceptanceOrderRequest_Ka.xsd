@@ -57,19 +57,28 @@
             <xs:element name="Stock" type="tns:Stock" minOccurs="0" />
             <xs:element name="Client_KA" type="tns:Client_KA" minOccurs="0" />
         </xs:choice>
+        <xs:attribute name="OrderID" type="xs:string" use="required" />
         <xs:attribute name="DocTypeID" type="xs:int" use="required" />
         <xs:attribute name="DocNum" type="xs:string" />
         <xs:attribute name="Comment" type="xs:string" />
         <xs:attribute name="DocDate" type="xs:dateTime" />
         <xs:attribute name="DocSumm" type="xs:string" />
         <xs:attribute name="NDS_Include" type="xs:boolean" />
+        <xs:attribute name="SaleDocID" type="xs:string" />
+        
     </xs:complexType>
     <xs:complexType name="AcceptanceOrder_KA">
         <xs:complexContent>
             <xs:extension base="tns:OrderLink_KA">
                 <xs:choice>
                     <xs:element name="Goods" type="tns:Good_KA" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="OrderRows" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="tns:AcceptanceOrderRow_KA" />
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:choice>
             </xs:extension>
         </xs:complexContent>

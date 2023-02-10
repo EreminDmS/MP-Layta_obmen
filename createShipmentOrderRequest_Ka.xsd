@@ -42,12 +42,14 @@
             <xs:element name="Stock" type="tns:Stock" minOccurs="1" />
             <xs:element name="Client_KA" type="tns:Client_KA" minOccurs="0" />
         </xs:choice>
+        <xs:attribute name="OrderID" type="xs:string" use="required"/>
         <xs:attribute name="DocTypeID" type="xs:int" use="required" />
         <xs:attribute name="DocNum" type="xs:string" />
         <xs:attribute name="Comment" type="xs:string" />
         <xs:attribute name="DocDate" type="xs:dateTime" />
         <xs:attribute name="DocSumm" type="xs:string" />
         <xs:attribute name="NDS_Include" type="xs:boolean" />
+        <xs:attribute name="SaleDocID" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="ShipmentOrderRow">
         <xs:attribute name="GoodID" type="xs:string" use="required" />
