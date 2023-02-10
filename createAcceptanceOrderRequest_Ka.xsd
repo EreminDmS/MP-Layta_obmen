@@ -65,7 +65,6 @@
         <xs:attribute name="DocSumm" type="xs:string" />
         <xs:attribute name="NDS_Include" type="xs:boolean" />
         <xs:attribute name="SaleDocID" type="xs:string" />
-        
     </xs:complexType>
     <xs:complexType name="AcceptanceOrder_KA">
         <xs:complexContent>
