@@ -4,8 +4,8 @@
     <xs:complexType name="Client_KA">
         <xs:attribute name="ClientID" type="xs:string" use="required" />
         <xs:attribute name="ClientName" type="xs:string" />
-        <xs:attribute name="INN" type="xs:string" />
-        <xs:attribute name="KPP" type="xs:string" />
+        <xs:attribute name="INN" type="xs:string" use="required" />
+        <xs:attribute name="KPP" type="xs:string" use="required" />
         <xs:attribute name="Phone" type="xs:string" />
         <xs:attribute name="Email" type="xs:string" />
         <xs:attribute name="АctualАddress" type="xs:string" />
@@ -49,7 +49,12 @@
         <xs:attribute name="Summ_With_NDS" type="xs:decimal" />
     </xs:complexType>
     <xs:complexType name="Stock">
-        <xs:attribute name="StockID" type="xs:string" use="required" />
+        <xs:attribute name="StockID" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>УИД склада
+</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="StockName" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="OrderLink_KA">
