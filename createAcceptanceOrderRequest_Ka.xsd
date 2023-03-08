@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid Studio 2020 (https://www.liquid-technologies.com)-->
 <xs:schema xmlns:tns="http://ws.toplogwms.ru/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.toplogwms.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:complexType name="Client_KA">
         <xs:attribute name="ClientID" type="xs:string" use="required" />
@@ -16,7 +16,7 @@
     </xs:complexType>
     <xs:complexType name="KeepingVariant_KA">
         <xs:attribute name="ID" type="xs:string" />
-        <xs:attribute name="Measure" type="xs:string" default="796" />
+        <xs:attribute name="Measure" default="796" type="xs:string" />
         <xs:attribute name="KeepingVariantType" type="xs:int" />
         <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
         <xs:attribute name="Description" type="xs:string" />
@@ -29,8 +29,8 @@
         <xs:attribute name="GoodID" type="xs:string" use="required" />
         <xs:attribute name="Name" type="xs:string" use="required" />
         <xs:attribute name="Article" type="xs:string" />
-        <xs:attribute name="GoodType" type="xs:int" default="1" />
-        <xs:attribute name="BaseMeasure" type="xs:string" default="796" />
+        <xs:attribute name="GoodType" default="1" type="xs:int" />
+        <xs:attribute name="BaseMeasure" default="796" type="xs:string" />
         <xs:attribute name="FullName" type="xs:string" />
         <xs:attribute name="IsService" type="xs:boolean" />
         <xs:attribute name="Comment" type="xs:string" />
@@ -65,11 +65,11 @@
         <xs:attribute name="OrderID" type="xs:string" use="required" />
         <xs:attribute name="DocTypeID" type="xs:int" use="required" />
         <xs:attribute name="DocNum" type="xs:string" />
-        <xs:attribute name="Comment" type="xs:string" />
         <xs:attribute name="DocDate" type="xs:dateTime" />
-        <xs:attribute name="DocSumm" type="xs:string" />
-        <xs:attribute name="NDS_Include" type="xs:boolean" />
+        <xs:attribute name="DocSumm" type="xs:decimal" />
+        <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
         <xs:attribute name="SaleDocID" type="xs:string" />
+        <xs:attribute name="Comment" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="AcceptanceOrder_KA">
         <xs:complexContent>
