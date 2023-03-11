@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--Created with Liquid Studio 2020 (https://www.liquid-technologies.com)-->
 <xs:schema xmlns:tns="http://ws.toplogwms.ru/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.toplogwms.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:complexType name="SaleOrder">
+    <xs:complexType name="SaleOrderLink">
         <xs:attribute name="OrderID" type="xs:string" use="required" />
         <xs:attribute name="DocNum" type="xs:string" />
-        <xs:attribute name="Comment" type="xs:string" />
         <xs:attribute name="DocDate" type="xs:dateTime" />
+        <xs:attribute name="ClientId" type="xs:string" />
         <xs:attribute name="DocSumm" type="xs:string" />
         <xs:attribute name="NDS_Include" type="xs:boolean" />
-        <xs:attribute name="ClientId" type="xs:string" />
+        <xs:attribute name="Comment" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="SaleReportRow">
         <xs:attribute name="GoodID" type="xs:string" use="required" />
-        <xs:attribute name="GoodName" type="xs:string" use="required" />
         <xs:attribute name="Quantity" type="xs:decimal" use="required" />
         <xs:attribute name="Price" type="xs:decimal" use="required" />
         <xs:attribute name="KeepingVariantID" type="xs:string" />
@@ -25,7 +24,7 @@
     </xs:complexType>
     <xs:complexType name="SalesReport">
         <xs:complexContent>
-            <xs:extension base="tns:SaleOrder">
+            <xs:extension base="tns:SaleOrderLink">
                 <xs:choice>
                     <xs:element name="OrderRows" type="tns:SaleReportRow" minOccurs="0" maxOccurs="unbounded" />
                 </xs:choice>
