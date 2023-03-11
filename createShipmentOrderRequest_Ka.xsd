@@ -42,18 +42,17 @@
         <xs:attribute name="OrderID" type="xs:string" use="required" />
         <xs:attribute name="DocTypeID" type="xs:int" use="required" />
         <xs:attribute name="DocNum" type="xs:string" use="required" />
-        <xs:attribute name="DocDate" type="xs:dateTime" />
+        <xs:attribute name="DocDate" type="xs:dateTime" use="required" />
         <xs:attribute name="DocSumm" type="xs:string" />
-        <xs:attribute name="NDS_Include" type="xs:boolean" />
+        <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
         <xs:attribute name="SaleDocID" type="xs:string" />
         <xs:attribute name="Comment" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="ShipmentOrderRow">
         <xs:attribute name="GoodID" type="xs:string" use="required" />
-        <xs:attribute name="GoodName" type="xs:string" use="required" />
         <xs:attribute name="Quantity" type="xs:decimal" use="required" />
         <xs:attribute name="Price" type="xs:decimal" use="required" />
-        <xs:attribute name="KeepingVariantID" type="xs:string" />
+        <xs:attribute name="KeepingVariantID" type="xs:string" use="required" />
         <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
         <xs:attribute name="Summ" type="xs:decimal" use="required" />
         <xs:attribute name="Stavka_NDS" type="xs:string" use="required" />
