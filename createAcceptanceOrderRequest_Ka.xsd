@@ -1,85 +1,75 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid Studio 2020 (https://www.liquid-technologies.com)-->
-<xs:schema xmlns:tns="http://ws.toplogwms.ru/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.toplogwms.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:complexType name="Client_KA">
-        <xs:attribute name="ClientID" type="xs:string" use="required" />
-        <xs:attribute name="ClientName" type="xs:string" />
-        <xs:attribute name="INN" type="xs:string" use="required" />
-        <xs:attribute name="KPP" type="xs:string" use="required" />
-        <xs:attribute name="Phone" type="xs:string" />
-        <xs:attribute name="Email" type="xs:string" />
-        <xs:attribute name="АctualАddress" type="xs:string" />
-        <xs:attribute name="Postcode" type="xs:string" />
-        <xs:attribute name="IsBuyer" type="xs:boolean" />
-        <xs:attribute name="IsLegalPerson" type="xs:boolean" />
-        <xs:attribute name="ClientFullName" type="xs:string" />
-    </xs:complexType>
-    <xs:complexType name="KeepingVariant_KA">
-        <xs:attribute name="ID" type="xs:string" use="required" />
-        <xs:attribute name="Name" type="xs:string" use="required" />
-        <xs:attribute name="KeepingVariantType" default="796" type="xs:int" use="required" />
-        <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
-    </xs:complexType>
-    <xs:complexType name="Good_KA">
-        <xs:choice>
-            <xs:element name="KeepingVariants" type="tns:KeepingVariant_KA" minOccurs="0" maxOccurs="unbounded" />
-        </xs:choice>
-        <xs:attribute name="GoodID" type="xs:string" use="required" />
-        <xs:attribute name="Name" type="xs:string" use="required" />
-        <xs:attribute name="Article" type="xs:string" />
-        <xs:attribute name="BaseKeepingVariantType" default="796" type="xs:string" />
-        <xs:attribute name="FullName" type="xs:string" />
-        <xs:attribute name="IsService" type="xs:boolean" use="required" />
-        <xs:attribute name="Comment" type="xs:string" />
-    </xs:complexType>
-    <xs:complexType name="AcceptanceOrderRow_KA">
-        <xs:attribute name="GoodID" type="xs:string" use="required" />
-        <xs:attribute name="Quantity_plan" type="xs:decimal" use="required" />
-        <xs:attribute name="Quantity" type="xs:decimal" use="required" />
-        <xs:attribute name="Price" type="xs:decimal" use="required" />
-        <xs:attribute name="KeepingVariantID" type="xs:string" use="required" />
-        <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
-        <xs:attribute name="Summ" type="xs:decimal" use="required" />
-        <xs:attribute name="Stavka_NDS" type="xs:string" use="required" />
-        <xs:attribute name="Summ_NDS" type="xs:decimal" />
-        <xs:attribute name="Summ_With_NDS" type="xs:decimal" />
-    </xs:complexType>
-    <xs:complexType name="Stock">
-        <xs:attribute name="StockID" type="xs:string" use="required">
-            <xs:annotation>
-                <xs:documentation>УИД склада
-</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="StockName" type="xs:string" use="required" />
-    </xs:complexType>
-    <xs:complexType name="OrderLink_KA">
-        <xs:choice>
-            <xs:element name="Stock" type="tns:Stock" minOccurs="1" />
-            <xs:element name="Client_KA" type="tns:Client_KA" minOccurs="1" />
-        </xs:choice>
-        <xs:attribute name="OrderID" type="xs:string" use="required" />
-        <xs:attribute name="DocTypeID" type="xs:int" use="required" />
-        <xs:attribute name="DocNum" type="xs:string" />
-        <xs:attribute name="DocDate" type="xs:dateTime" />
-        <xs:attribute name="DocSumm" type="xs:decimal" />
-        <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
-        <xs:attribute name="SaleDocID" type="xs:string" />
-        <xs:attribute name="Comment" type="xs:string" />
-    </xs:complexType>
-    <xs:complexType name="AcceptanceOrder_KA">
-        <xs:complexContent>
-            <xs:extension base="tns:OrderLink_KA">
-                <xs:choice>
-                    <xs:element name="Goods" type="tns:Good_KA" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="0" maxOccurs="unbounded" />
-                </xs:choice>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="createAcceptanceOrderRequest_KA">
-        <xs:choice>
-            <xs:element name="Orders" type="tns:AcceptanceOrder_KA" maxOccurs="unbounded" />
-        </xs:choice>
-    </xs:complexType>
+﻿<xs:schema xmlns:tns="http://ws.toplogwms.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.toplogwms.ru/" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:complexType name="AcceptanceOrderRow_KA">
+		<xs:attribute name="GoodID" type="xs:string" use="required"/>
+		<xs:attribute name="Quantity_plan" type="xs:decimal" use="required"/>
+		<xs:attribute name="Quantity" type="xs:decimal" use="required"/>
+		<xs:attribute name="Price" type="xs:decimal" use="required"/>
+		<xs:attribute name="KeepingVariantID" type="xs:string" use="required"/>
+		<xs:attribute name="Coefficient" type="xs:decimal" use="required"/>
+		<xs:attribute name="Summ" type="xs:decimal" use="required"/>
+		<xs:attribute name="Stavka_NDS" type="xs:string" use="required"/>
+		<xs:attribute name="Summ_NDS" type="xs:decimal"/>
+		<xs:attribute name="Summ_With_NDS" type="xs:decimal"/>
+	</xs:complexType>
+	<xs:complexType name="AcceptanceOrder_KA">
+		<xs:choice>
+			<xs:element name="Order" type="tns:OrderLink_KA"/>
+			<xs:element name="Goods" type="tns:Good_KA" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Client_KA">
+		<xs:attribute name="ClientID" type="xs:string" use="required"/>
+		<xs:attribute name="ClientName" type="xs:string"/>
+		<xs:attribute name="INN" type="xs:string" use="required"/>
+		<xs:attribute name="KPP" type="xs:string" use="required"/>
+		<xs:attribute name="Phone" type="xs:string"/>
+		<xs:attribute name="Email" type="xs:string"/>
+		<xs:attribute name="АctualАddress" type="xs:string"/>
+		<xs:attribute name="Postcode" type="xs:string"/>
+		<xs:attribute name="IsBuyer" type="xs:boolean"/>
+		<xs:attribute name="IsLegalPerson" type="xs:boolean"/>
+		<xs:attribute name="ClientFullName" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="Good_KA">
+		<xs:choice>
+			<xs:element name="KeepingVariants" type="tns:KeepingVariant_KA" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+		<xs:attribute name="GoodID" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Article" type="xs:string"/>
+		<xs:attribute name="BaseKeepingVariantType" type="xs:string" default="796"/>
+		<xs:attribute name="FullName" type="xs:string"/>
+		<xs:attribute name="IsService" type="xs:boolean" use="required"/>
+		<xs:attribute name="Comment" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="KeepingVariant_KA">
+		<xs:attribute name="ID" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="KeepingVariantType" type="xs:int" default="796"/>
+		<xs:attribute name="Coefficient" type="xs:decimal" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="OrderLink_KA">
+		<xs:choice>
+			<xs:element name="Stock" type="tns:Stock" minOccurs="0"/>
+			<xs:element name="Client_KA" type="tns:Client_KA" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="OrderID" type="xs:string" use="required"/>
+		<xs:attribute name="DocTypeID" type="xs:int" use="required"/>
+		<xs:attribute name="DocNum" type="xs:string"/>
+		<xs:attribute name="DocDate" type="xs:dateTime"/>
+		<xs:attribute name="DocSumm" type="xs:decimal"/>
+		<xs:attribute name="NDS_Include" type="xs:boolean" use="required"/>
+		<xs:attribute name="SaleDocID" type="xs:string"/>
+		<xs:attribute name="Comment" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="Stock">
+		<xs:attribute name="StockID" type="xs:string" use="required"/>
+		<xs:attribute name="StockName" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="createAcceptanceOrderRequest_KA">
+		<xs:choice>
+			<xs:element name="Orders" type="tns:AcceptanceOrder_KA" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
 </xs:schema>
