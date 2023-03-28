@@ -14,8 +14,8 @@
 	<xs:complexType name="AcceptanceOrder_KA">
 		<xs:choice>
 			<xs:element name="Order" type="tns:OrderLink_KA"/>
-			<xs:element name="Goods" type="tns:Good_KA" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Goods" type="tns:Good_KA" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="Client_KA">
@@ -51,8 +51,8 @@
 	</xs:complexType>
 	<xs:complexType name="OrderLink_KA">
 		<xs:choice>
-			<xs:element name="Stock" type="tns:Stock" minOccurs="0"/>
-			<xs:element name="Client_KA" type="tns:Client_KA" minOccurs="0"/>
+			<xs:element name="Stock" type="tns:Stock" minOccurs="1"/>
+			<xs:element name="Client_KA" type="tns:Client_KA" minOccurs="1"/>
 		</xs:choice>
 		<xs:attribute name="OrderID" type="xs:string" use="required"/>
 		<xs:attribute name="DocTypeID" type="xs:int" use="required"/>
@@ -69,7 +69,7 @@
 	</xs:complexType>
 	<xs:complexType name="createAcceptanceOrderRequest_KA">
 		<xs:choice>
-			<xs:element name="Orders" type="tns:AcceptanceOrder_KA" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Orders" type="tns:AcceptanceOrder_KA" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:choice>
 	</xs:complexType>
 </xs:schema>

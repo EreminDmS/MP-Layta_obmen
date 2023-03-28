@@ -25,7 +25,7 @@
     <xs:complexType name="SalesReport">
         <xs:choice>
             <xs:element name="Order" type="tns:SaleOrderLink"/>
-            <xs:element name="OrderRows" type="tns:SaleReportRow" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="OrderRows" type="tns:SaleReportRow" minOccurs="1" maxOccurs="unbounded" />
         </xs:choice>
     </xs:complexType>
     <xs:complexType name="createSalesReportRequest">

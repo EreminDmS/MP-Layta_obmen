@@ -38,7 +38,7 @@
     <xs:complexType name="CashReceipts">
         <xs:choice>
              <xs:element name="Order" type="tns:CashOrderLink"/>
-            <xs:element name="OrderRows" type="tns:CashReceiptsRow" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="OrderRows" type="tns:CashReceiptsRow" minOccurs="1" maxOccurs="unbounded" />
         </xs:choice>
     </xs:complexType>
     <xs:complexType name="createCashReceiptsRequest">
