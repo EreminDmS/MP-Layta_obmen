@@ -15,6 +15,7 @@
         <xs:attribute name="Quantity" type="xs:decimal" use="required" />
         <xs:attribute name="Price" type="xs:decimal" use="required" />
         <xs:attribute name="KeepingVariantID" type="xs:string" />
+        <xs:attribute name="BaseKeepingVariantType" type="xs:string" default="796" use="required" />
         <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
         <xs:attribute name="Summ" type="xs:decimal" use="required" />
         <xs:attribute name="Stavka_NDS" type="xs:string" use="required" />
@@ -24,7 +25,7 @@
     </xs:complexType>
     <xs:complexType name="SalesReport">
         <xs:choice>
-            <xs:element name="Order" type="tns:SaleOrderLink"/>
+            <xs:element name="Order" type="tns:SaleOrderLink" />
             <xs:element name="OrderRows" type="tns:SaleReportRow" minOccurs="1" maxOccurs="unbounded" />
         </xs:choice>
     </xs:complexType>
