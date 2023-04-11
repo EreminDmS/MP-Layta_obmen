@@ -6,6 +6,7 @@
         <xs:attribute name="DocNum" type="xs:string" use="required" />
         <xs:attribute name="DocDate" type="xs:dateTime" use="required" />
         <xs:attribute name="ClientId" type="xs:string" use="required" />
+        <xs:attribute name="ClientINN" type="xs:string" use="required" />
         <xs:attribute name="DocSumm" type="xs:decimal" />
         <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
         <xs:attribute name="Comment" type="xs:string" />
