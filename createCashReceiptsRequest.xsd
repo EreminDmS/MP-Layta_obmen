@@ -25,7 +25,6 @@
         <xs:attribute name="BankDocDate" type="xs:dateTime" use="required" />
         <xs:attribute name="BankAccountBeneficiary" type="xs:string" use="required" />
         <xs:attribute name="DocSumm" type="xs:decimal" use="required" />
-        <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
         <xs:attribute name="PurposeOfPayment" type="xs:string" use="required" />
         <xs:attribute name="Comment" type="xs:string" />
     </xs:complexType>
