@@ -31,7 +31,7 @@
         <xs:attribute name="АctualАddress" type="xs:string" />
         <xs:attribute name="Postcode" type="xs:string" />
         <xs:attribute name="IsBuyer" type="xs:boolean" />
-        <xs:attribute name="IsLegalPerson" type="xs:boolean" />
+        <xs:attribute name="IsLegalPerson" type="xs:boolean" use="required" />
         <xs:attribute name="ClientFullName" type="xs:string" />
     </xs:complexType>
     <xs:complexType name="Good_KA">
