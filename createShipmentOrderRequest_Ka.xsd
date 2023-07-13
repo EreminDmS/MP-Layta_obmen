@@ -53,7 +53,7 @@
         <xs:attribute name="Quantity" type="xs:decimal" use="required" />
         <xs:attribute name="Price" type="xs:decimal" use="required" />
         <xs:attribute name="KeepingVariantID" type="xs:string" />
-        <xs:attribute name="BaseKeepingVariantType" type="xs:string" default="796" use="required" />
+        <xs:attribute name="BaseKeepingVariantType" type="xs:string" default="796" />
         <xs:attribute name="Coefficient" type="xs:decimal" use="required" />
         <xs:attribute name="Summ" type="xs:decimal" use="required" />
         <xs:attribute name="Stavka_NDS" type="xs:string" use="required" />
@@ -65,7 +65,10 @@
             <xs:element name="Order" type="tns:OrderLink_KA" />
             <xs:element name="OrderRows" type="tns:ShipmentOrderRow" minOccurs="1" maxOccurs="unbounded" />
             <xs:element name="DeliveryInfo" type="xs:string" minOccurs="0" maxOccurs="1" />
+ 
         </xs:choice>
+              <xs:attribute name="StatusID" type="xs:int" default="1" />
+            <xs:attribute name="StatusDate" type="xs:dateTime" />
     </xs:complexType>
     <xs:complexType name="createShipmentOrderRequest_KA">
         <xs:choice>
