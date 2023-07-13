@@ -65,6 +65,8 @@
         <xs:attribute name="NDS_Include" type="xs:boolean" use="required" />
         <xs:attribute name="SaleDocID" type="xs:string" />
         <xs:attribute name="Comment" type="xs:string" />
+        <xs:attribute name="StatusID" type="xs:int" default="1" />
+        <xs:attribute name="StatusDate" type="xs:dateTime" />
     </xs:complexType>
     <xs:complexType name="Stock">
         <xs:attribute name="StockID" type="xs:string" use="required" />
@@ -72,7 +74,16 @@
     </xs:complexType>
     <xs:complexType name="createAcceptanceOrderRequest_KA">
         <xs:choice>
-            <xs:element name="Orders" type="tns:AcceptanceOrder_KA" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="Orders" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="tns:AcceptanceOrder_KA">
+                            <!-- Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com) -->
+                            <xs:attribute name="ReturnTypeID" type="xs:int" default="1" />
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
         </xs:choice>
     </xs:complexType>
 </xs:schema>
