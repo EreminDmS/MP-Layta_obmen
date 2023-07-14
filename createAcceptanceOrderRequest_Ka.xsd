@@ -20,6 +20,7 @@
             <xs:element name="Goods" type="tns:Good_KA" minOccurs="1" maxOccurs="unbounded" />
             <xs:element name="OrderRows" type="tns:AcceptanceOrderRow_KA" minOccurs="1" maxOccurs="unbounded" />
         </xs:choice>
+        <xs:attribute name="ReturnTypeID" type="xs:int" />
     </xs:complexType>
     <xs:complexType name="Client_KA">
         <xs:attribute name="ClientID" type="xs:string" use="required" />
@@ -77,10 +78,7 @@
             <xs:element name="Orders" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="tns:AcceptanceOrder_KA">
-                            <!-- Created with Liquid XML Studio Developer Edition 9.0.11.3078 (http://www.liquid-technologies.com) -->
-                            <xs:attribute name="ReturnTypeID" type="xs:int" default="1" />
-                        </xs:extension>
+                        <xs:extension base="tns:AcceptanceOrder_KA" />
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
