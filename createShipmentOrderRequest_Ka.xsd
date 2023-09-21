@@ -36,12 +36,12 @@
     </xs:complexType>
     <xs:complexType name="PrintData">
         <xs:attribute name="ShipmentPerson" type="xs:string" />
-        <xs:attribute name="SalesDocument" type="xs:string" />
-        <xs:attribute name="SalesDocumentNumber" type="xs:string" />
-        <xs:attribute name="SalesDocumentDate" type="xs:date" />
-        <xs:attribute name="Shipper" type="xs:string" />
-        <xs:attribute name="Consignee" type="xs:string" />
-        <xs:attribute name="DeliveryAddress" type="xs:string" />
+        <xs:attribute name="SalesDocument" type="xs:string" use="required" />
+        <xs:attribute name="SalesDocumentNumber" type="xs:string" use="required" />
+        <xs:attribute name="SalesDocumentDate" type="xs:date" use="required" />
+        <xs:attribute name="Shipper" type="xs:string" use="required" />
+        <xs:attribute name="Consignee" type="xs:string" use="required" />
+        <xs:attribute name="DeliveryAddress" type="xs:string" use="required" />
         <xs:attribute name="ProxyNumber" type="xs:string" />
         <xs:attribute name="ProxyIssued" type="xs:string" />
         <xs:attribute name="ProxyPerson" type="xs:string" />
