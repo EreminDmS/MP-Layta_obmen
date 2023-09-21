@@ -34,6 +34,18 @@
         <xs:attribute name="ContactPerson" type="xs:string" />
         <xs:attribute name="Phone" type="xs:string" />
     </xs:complexType>
+    <xs:complexType name="PrintData">
+        <xs:attribute name="ShipmentPerson" type="xs:string" />
+        <xs:attribute name="SalesDocument" type="xs:string" />
+        <xs:attribute name="SalesDocumentNumber" type="xs:string" />
+        <xs:attribute name="SalesDocumentDate" type="xs:date" />
+        <xs:attribute name="Shipper" type="xs:string" />
+        <xs:attribute name="Consignee" type="xs:string" />
+        <xs:attribute name="DeliveryAddress" type="xs:string" />
+        <xs:attribute name="ProxyNumber" type="xs:string" />
+        <xs:attribute name="ProxyIssued" type="xs:string" />
+        <xs:attribute name="ProxyPerson" type="xs:string" />
+    </xs:complexType>
     <xs:complexType name="OrderLink_KA">
         <xs:choice>
             <xs:element name="Stock" type="tns:Stock" minOccurs="1" />
@@ -65,10 +77,10 @@
             <xs:element name="Order" type="tns:OrderLink_KA" />
             <xs:element name="OrderRows" type="tns:ShipmentOrderRow" minOccurs="1" maxOccurs="unbounded" />
             <xs:element name="DeliveryInfo" type="xs:string" minOccurs="0" maxOccurs="1" />
- 
+            <xs:element name="PrintData" type="tns:PrintData" maxOccurs="1" />
         </xs:choice>
-              <xs:attribute name="StatusID" type="xs:int" default="1" />
-            <xs:attribute name="StatusDate" type="xs:dateTime" />
+        <xs:attribute name="StatusID" type="xs:int" default="1" />
+        <xs:attribute name="StatusDate" type="xs:dateTime" />
     </xs:complexType>
     <xs:complexType name="createShipmentOrderRequest_KA">
         <xs:choice>
